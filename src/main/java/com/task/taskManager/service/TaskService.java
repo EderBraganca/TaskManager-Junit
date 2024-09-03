@@ -2,12 +2,16 @@ package com.task.taskManager.service;
 
 import com.task.taskManager.domain.Task;
 import com.task.taskManager.repository.TaskRepository;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Getter
+@Setter
 @Service
 @NoArgsConstructor
 public class TaskService{
@@ -25,7 +29,8 @@ public class TaskService{
             task.setName(name);
             task.setDescription(description);
             task.setCompleted(completed);
-            return addTask(task);
+            addTask(task);
+            return task;
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
